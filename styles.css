@@ -1,0 +1,165 @@
+:root {
+  color-scheme: light;
+  --page: #f5f3ee;
+  --surface: #fffefa;
+  --ink: #252a26;
+  --muted: #6f756f;
+  --accent: #52715d;
+  --accent-soft: #e8efe7;
+  --line: #e9e7df;
+  --shadow: 0 12px 32px rgb(39 48 40 / 7%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% 0, #e9eee6 0, transparent 42rem),
+    var(--page);
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.page {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 76px 0 88px;
+}
+
+.header {
+  max-width: 650px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+
+.subtitle {
+  max-width: 480px;
+  margin: 16px auto 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 265px), 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  display: flex;
+  min-height: 272px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+  border: 1px solid rgb(233 231 223 / 85%);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgb(39 48 40 / 11%);
+}
+
+.genre {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.77rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.book-card h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.author {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.description {
+  margin: 18px 0 24px;
+  color: #4e554f;
+  font-size: 0.94rem;
+}
+
+.year {
+  margin: auto 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: min(100% - 32px, 440px);
+    padding: 52px 0 60px;
+  }
+
+  .header {
+    margin-bottom: 30px;
+  }
+
+  .subtitle {
+    font-size: 0.98rem;
+  }
+
+  .book-grid {
+    gap: 14px;
+  }
+
+  .book-card {
+    min-height: 0;
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
